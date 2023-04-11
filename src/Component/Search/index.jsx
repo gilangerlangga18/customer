@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, IconButton, InputBase, Paper } from "@mui/material";
 import { useGlobalContext } from "../GlobalContext/Context";
+import { searchSx as sx } from "./styles";
 
 function Search() {
   const { searchByName } = useGlobalContext();
@@ -9,16 +10,7 @@ function Search() {
     searchByName(search);
   };
   return (
-    <Paper
-      component="form"
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        width: "400px",
-        height: "45px",
-        borderRadius: "8px",
-      }}
-    >
+    <Paper component="form" sx={sx.boxSearch}>
       <IconButton>
         <img src="../../../image/iconBanner/search-normal.svg" />
       </IconButton>
@@ -30,19 +22,7 @@ function Search() {
         }}
       />
 
-      <Button
-        sx={{
-          width: "78px",
-          height: "37px",
-          bgcolor: "#5D5FEF",
-          color: "#fff",
-          fontSize: "14px",
-          fontWeight: "500",
-          marginRight: "7px",
-          borderRadius: "8px",
-        }}
-        onClick={submitSearch}
-      >
+      <Button sx={sx.btnSearch} onClick={submitSearch}>
         Search
       </Button>
     </Paper>

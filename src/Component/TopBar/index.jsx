@@ -1,6 +1,7 @@
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import React, { useState } from "react";
 import CustomerTabs from "../CustomerTabs";
+import { topbarSx as sx } from "./styles";
 // import PropTypes from "prop-types";
 
 function TabPanel(props) {
@@ -24,48 +25,12 @@ function TopBar() {
     setValue(newValue);
   };
   return (
-    <Box
-      sx={{
-        display: "flex",
-        // bgcolor: "gold",
-        width: "100%",
-        borderBottom: "1px solid gray",
-        padding: "20px",
-        paddingBottom: "0",
-      }}
-    >
-      <Box
-        sx={{
-          //   bgcolor: "dodgerblue",
-          display: "flex",
-          flexDirection: "column",
-          flex: 1,
-        }}
-      >
+    <Box sx={sx.bodytopbar}>
+      <Box sx={sx.containerTop}>
         <Box sx={{ borderBottom: 1, borderColor: "divider", display: "flex" }}>
-          <Box
-            sx={{
-              //   bgcolor: "salmon",
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              paddingBottom: "20px",
-            }}
-          >
-            <Typography
-              sx={{
-                fontWeight: "700",
-                fontSize: "24px",
-              }}
-            >
-              Customer
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "14px",
-                color: "#98949E",
-              }}
-            >
+          <Box sx={sx.textTop}>
+            <Typography sx={sx.textCustomer}>Customer</Typography>
+            <Typography sx={sx.textTopBar}>
               You can manage and organize your customer and other things here
             </Typography>
           </Box>
@@ -74,42 +39,11 @@ function TopBar() {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
-            sx={{
-              display: "flex",
-              flex: 1,
-              alignItems: "end",
-            }}
+            sx={sx.tabTop}
           >
-            <Tab
-              label="Customer"
-              sx={{
-                display: "flex",
-                flex: 1,
-                fontSize: "14px",
-                fontWeight: "600",
-                color: "#98949E",
-              }}
-            />
-            <Tab
-              label="Promo"
-              sx={{
-                display: "flex",
-                flex: 1,
-                fontSize: "14px",
-                fontWeight: "600",
-                color: "#98949E",
-              }}
-            />
-            <Tab
-              label="Voucer"
-              sx={{
-                display: "flex",
-                flex: 1,
-                fontSize: "14px",
-                fontWeight: "600",
-                color: "#98949E",
-              }}
-            />
+            <Tab label="Customer" sx={sx.tabs} />
+            <Tab label="Promo" sx={sx.tabs} />
+            <Tab label="Voucer" sx={sx.tabs} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
